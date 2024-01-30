@@ -1,4 +1,4 @@
-## This is a personal repo on dotnet utils. This serves mostly as a personal reference. 
+## Personal repo on dotnet utils. This serves mostly as a personal reference. 
 
 Check the dotnet versions installed on a system
 
