@@ -36,12 +36,16 @@ dotnet list package
 
 
 ```
-
+https://learn.microsoft.com/en-us/aspnet/identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 ```
 dotnet new web -o Microsoft_Identity
+```
+```
 dotnet new gitignore
 ```
-
+```
+dotnet add package Microsoft.AspNet.Identity.Samples --prerelease
+```
 ```
 ./geckodriver --version
 ```
