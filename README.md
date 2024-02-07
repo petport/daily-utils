@@ -11,6 +11,11 @@ Create a new project
 dotnet new console -n MFA_Testing
 ```
 
+To check the generated files:
+```
+dotnet new <args> --dry-run
+```
+
 Add NuGet packages
 ```
 dotnet add package Selenium.WebDriver --version 4.16.2
@@ -26,6 +31,16 @@ dotnet list package
 | Selenium.WebDriver   |  4.16.2  |
 
 # Gecko Driver Version
+
+```
+
+
+```
+
+```
+dotnet new web -o Microsoft_Identity
+dotnet new gitignore
+```
 
 ```
 ./geckodriver --version
