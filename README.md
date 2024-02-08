@@ -49,6 +49,51 @@ dotnet new gitignore
 ```
 dotnet add package Microsoft.AspNet.Identity.Samples --prerelease
 ```
+Errors: 
+```
+/Users/petrosportokalakis/ThesisApps/Microsoft_Identity/Microsoft_Identity.csproj : error NU1605: Warning As Error: Detected package downgrade: Microsoft.Owin.Security.Cookies from 3.0.1 to 2.1.0. Reference the package directly from the project to select a different version.
+/Users/petrosportokalakis/ThesisApps/Microsoft_Identity/Microsoft_Identity.csproj : error NU1605:  Microsoft_Identity -> Microsoft.AspNet.Identity.Samples 2.2.0-alpha1 -> Microsoft.AspNet.Identity.Owin 2.2.2 -> Microsoft.Owin.Security.Cookies (>= 3.0.1)
+/Users/petrosportokalakis/ThesisApps/Microsoft_Identity/Microsoft_Identity.csproj : error NU1605:  Microsoft_Identity -> Microsoft.AspNet.Identity.Samples 2.2.0-alpha1 -> Microsoft.Owin.Security.Cookies (>= 2.1.0)
+/Users/petrosportokalakis/ThesisApps/Microsoft_Identity/Microsoft_Identity.csproj : error NU1605: Warning As Error: Detected package downgrade: Newtonsoft.Json from 6.0.4 to 5.0.6. Reference the package directly from the project to select a different version.
+/Users/petrosportokalakis/ThesisApps/Microsoft_Identity/Microsoft_Identity.csproj : error NU1605:  Microsoft_Identity -> Microsoft.AspNet.Identity.Samples 2.2.0-alpha1 -> Microsoft.AspNet.Identity.Owin 2.2.2 -> Microsoft.Owin.Security.OAuth 3.0.1 -> Newtonsoft.Json (>= 6.0.4)
+/Users/petrosportokalakis/ThesisApps/Microsoft_Identity/Microsoft_Identity.csproj : error NU1605:  Microsoft_Identity -> Microsoft.AspNet.Identity.Samples 2.2.0-alpha1 -> Newtonsoft.Json (>= 5.0.6)
+
+The build failed. Fix the build errors and run again.
+```
+Solved with:
+```
+https://stackoverflow.com/questions/50286990/error-nu1605-detected-package-downgrade
+```
+By:
+Adding `<NoWarn>NU1605</NoWarn>` in the `Microsoft_Identity/Microsoft_Identity.csproj` file.
+
+That is, changes were:
+```
+    <!-- Microsoft.Owin.Security -->
+    <PackageReference Include="Microsoft.Owin.Security" Version="3.0.1">
+    <NoWarn>NU1605</NoWarn>
+    </PackageReference>
+
+    <!--Microsoft.Owin.Security.Cookies-->
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="3.0.1">
+    <NoWarn>NU1605</NoWarn>
+    </PackageReference>
+
+    <!--Newtonsoft.Json-->
+    <PackageReference Include="Newtonsoft.Json" Version="6.0.4">
+    <NoWarn>NU1605</NoWarn>
+    </PackageReference>
+```
+
+Make project to use SSL:
+
+```
+dotnet run -lp https
+```
+Why?
+```
+HTTPS is HTTP with encryption and verification. The only difference between the two protocols is that HTTPS uses TLS (SSL) to encrypt normal HTTP requests and responses, and to digitally sign those requests and responses. As a result, HTTPS is far more secure than HTTP.
+```
 
 
 # Mozilla Version Used by Selenium
