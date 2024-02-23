@@ -1,4 +1,4 @@
-## Personal repo on dotnet utils. This serves mostly as a personal reference. 
+## Personal repo on stuff I use while doing things on my daily work. This serves mostly as a personal reference. 
 
 Check the dotnet versions installed on a system
 
@@ -132,3 +132,11 @@ In general, the `driver.Capabilities` is a JSON object with the following inform
   "unhandledPromptBehavior": "dismiss and notify"
 }
 ```
+
+
+## MongoDB
+
+```
+show dbs
+```
+
